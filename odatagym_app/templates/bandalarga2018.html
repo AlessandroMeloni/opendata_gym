@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>OpenData Gym</title>
+
+        <base href="/" />
+
+        {% include 'stylesheets.html' %}
+
+        <style>
+            .map {
+                width: 100%;
+                height: 800px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="italy_map" class="map"></div>
+
+        {% include 'javascripts.html' %}
+
+        <script>
+            $(document).ready(function() {
+                $("#italy_map").svg({
+                    loadURL: "http://localhost:8000/static/media/svg/italy.svg",
+                    onLoad: function() {
+                        var svg = $("#italy_map").svg('get');
+
+                        $.get({
+                            url: 'http://localhost:8000/api/datasets/italy/bandalarga/',
+                            data: {'file_delimiter': 'sc'},
+                            success: function(data) {
+                                for (var x in data) {
+                                    var path = $("#" + data[x].nome);
+                                    var value = Number(data[x]["201830Mb"]);
+                                    if (value < 10) {
+                                        path.css('fill', '#eeffee');
+                                    } else if (value < 20) {
+                                        path.css('fill', '#ddffdd');
+                                    } else if (value < 30) {
+                                        path.css('fill', '#ccffcc');
+                                    } else if (value < 40) {
+                                        path.css('fill', '#bbffbb');
+                                    } else if (value < 50) {
+                                        path.css('fill', '#aaffaa');
+                                    } else if (value < 60) {
+                                        path.css('fill', '#88ff88');
+                                    } else if (value < 70) {
+                                        path.css('fill', '#66ff66');
+                                    } else if (value < 80) {
+                                        path.css('fill', '#44ff44');
+                                    } else if (value < 90) {
+                                        path.css('fill', '#22ff22');
+                                    } else {
+                                        path.css('fill', '#00ff00');
+                                    }
+                                }
+                            }
+                        })
+                    },
+                    settings: {}
+                });
+            })
+        </script>
+    </body>
+</html>

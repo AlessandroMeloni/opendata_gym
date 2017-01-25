@@ -25,6 +25,10 @@ urlpatterns = [
         DatasetsHandler.as_view({'get': 'get'})),
 
     url(r'examples/sardinia_svg/', ex_views.get_sardinia_svg_example),
+    url(r'examples/bandalarga/', ex_views.get_banda_larga),
+    url(r'examples/bandalarga2015/', ex_views.get_banda_larga_2015),
+    url(r'examples/bandalarga2018/', ex_views.get_banda_larga_2018),
+    url(r'examples/bandalarga2020/', ex_views.get_banda_larga_2020),
     url(r'examples/sardinia_drugstores/', ex_views.get_sardinia_drugstores),
     url(r'examples/rome_accidents/', ex_views.get_rome_accidents),
 
