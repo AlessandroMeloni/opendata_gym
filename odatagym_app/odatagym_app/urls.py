@@ -26,6 +26,7 @@ urlpatterns = [
 
     url(r'examples/sardinia_svg/', ex_views.get_sardinia_svg_example),
     url(r'examples/bandalarga/', ex_views.get_banda_larga),
+    url(r'examples/postiletto/', ex_views.get_posti_letto),
     url(r'examples/bandalarga2015/', ex_views.get_banda_larga_2015),
     url(r'examples/bandalarga2018/', ex_views.get_banda_larga_2018),
     url(r'examples/bandalarga2020/', ex_views.get_banda_larga_2020),

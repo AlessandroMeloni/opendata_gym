@@ -20,6 +20,8 @@ def get_banda_larga_2015(request):
 def get_banda_larga(request):
     return render(request, 'bandalarga.html')
 
+def get_posti_letto(request):
+    return render(request, 'postiletto.html')
 
 def get_sardinia_drugstores(request):
     return render(request, 'markers.html',
