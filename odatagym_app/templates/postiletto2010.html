@@ -18,7 +18,6 @@
 
     <body>
         <div id="italy_map" class="map"></div>
-        <div id="italy_map_2" class="map"></div>
 
         {% include 'javascripts.html' %}
 
@@ -34,74 +33,6 @@
                             success: function(data) {
                                 for (var x in data) {
                                     var path = $("#" + data[x].regione);
-                                    var value = Number(data[x]["posti1000ab2009"]);
-                                    if (value < 2.5) {
-                                        path.css('fill', '#ffb0b0');
-                                    } else if (value < 2.6) {
-                                        path.css('fill', '#ffa8a8');
-                                    } else if (value < 2.7) {
-                                        path.css('fill', '#ffa0a0');
-                                    } else if (value < 2.8) {
-                                        path.css('fill', '#ff9898');
-                                    } else if (value < 2,9) {
-                                        path.css('fill', '#ff9090');
-                                    } else if (value < 3.0) {
-                                        path.css('fill', '#ff8888');
-                                    } else if (value < 3.1) {
-                                        path.css('fill', '#ff8080');
-                                    } else if (value < 3.2) {
-                                        path.css('fill', '#ff7878');
-                                    } else if (value < 3.3) {
-                                        path.css('fill', '#ff7070');
-                                    } else if (value < 3.4) {
-                                        path.css('fill', '#ff6868');
-                                    } else if (value < 3.5) {
-                                        path.css('fill', '#ff6060');
-                                    } else if (value < 3.6) {
-                                        path.css('fill', '#ff5858');
-                                    } else if (value < 3.7) {
-                                        path.css('fill', '#ff5050');
-                                    } else if (value < 3.8) {
-                                        path.css('fill', '#ff4848');
-                                    } else if (value < 3.9) {
-                                        path.css('fill', '#ff4040');
-                                    } else if (value < 4.0) {
-                                        path.css('fill', '#ff3838');
-                                    } else if (value < 4.1) {
-                                        path.css('fill', '#ff3030');
-                                    } else if (value < 4.2) {
-                                        path.css('fill', '#ff2828');
-                                    } else if (value < 4.3) {
-                                        path.css('fill', '#ff2020');
-                                    } else if (value < 4.4) {
-                                        path.css('fill', '#ff1818');
-                                    } else if (value < 4.5) {
-                                        path.css('fill', '#ff1212');
-                                    } else if (value < 4.6) {
-                                        path.css('fill', '#ff0f0f');
-                                    } else if (value < 4.7) {
-                                        path.css('fill', '#ff0f0f');
-                                    } else if (value < 4.8) {
-                                        path.css('fill', '#ff0808');
-                                    } else {
-                                        path.css('fill', '#ff0000');
-                                    }
-                                }
-                            }
-                        })
-                    },
-                    settings: {}
-                });
-
-                $("#italy_map_2").svg({
-                    loadURL: "http://localhost:8000/static/media/svg/italy.svg",
-                    onLoad: function() {
-                      var svg2 = $("#italy_map_2").svg('get');
-                       $.get({
-                            url: 'http://localhost:8000/api/datasets/italy/postiletto/',
-                            success: function(data) {
-                                for (var x in data) {
-                                    var path = $("#" + data[x].regione,svg2.root());
                                     var value = Number(data[x]["posti1000ab2010"]);
                                     if (value < 2.5) {
                                         path.css('fill', '#ffb0b0');
@@ -157,7 +88,6 @@
                                 }
                             }
                         })
-                        
                     },
                     settings: {}
                 });

@@ -20,13 +20,19 @@ def get_banda_larga_2015(request):
 def get_banda_larga(request):
     return render(request, 'bandalarga.html')
 
+def get_veicoli_rimossi(request):
+    return render(request, 'veicolirimossi.html',
+                  context={'google_api_key': GOOGLE_API_KEY})
+
 def get_posti_letto(request):
     return render(request, 'postiletto.html')
+
+def get_posti_letto_2010(request):
+    return render(request, 'postiletto2010.html')
 
 def get_sardinia_drugstores(request):
     return render(request, 'markers.html',
                   context={'google_api_key': GOOGLE_API_KEY})
-
 
 def get_rome_accidents(request):
     return render(request, 'heatmap.html',

@@ -10,7 +10,8 @@
 
         <style>
             #map {
-                height: 100%;
+                height: 80%;
+                margin: 20px;
             }
 
             html, body {
@@ -22,7 +23,10 @@
     </head>
 
     <body>
+        <h1 class = "text-center">Veicoli rimossi Cagliari</h1>
         <div id="map"></div>
+        <div class="text-center">
+             <div>Data from <a href="http://opendata.comune.cagliari.it/portale/it/st04_dataset.page?selectedNode=open_tematica_sicurezza&contentId=DTS89724">Comune di Cagliari</a></div>
 
         {% include 'javascripts.html' %}
 
@@ -30,20 +34,20 @@
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 9,
-                    center: {lat: 40.0835071, lng: 9.0853008},
+                    zoom: 13,
+                    center: {lat: 39.2329453, lng: 9.1405226},
                     mapTypeId: 'roadmap'
                 });
 
                 $.get({
-                    url: 'http://localhost:8000/api/datasets/sardinia/farmacie/',
+                    url: 'http://localhost:8000/api/datasets/sardinia/veicoli_rimossi/',
                     data: {'file_delimiter': 'sc'},
                     success: function(data) {
                         for (var i=0; i<data.length; i++) {
                             var m = new google.maps.Marker({
                                 position: {
-                                    lat: Number(data[i].LATITUDINE.replace(',', '.')),
-                                    lng: Number(data[i].LONGITUDINE.replace(',', '.'))
+                                    lat: Number(data[i].lat.replace(',', '.')),
+                                    lng: Number(data[i].long.replace(',', '.'))
                                 },
                                 map: map
                             });
