@@ -24,6 +24,10 @@ def get_veicoli_rimossi(request):
     return render(request, 'veicolirimossi.html',
                   context={'google_api_key': GOOGLE_API_KEY})
 
+def get_veicoli_rimossi_heatmap(request):
+    return render(request, 'veicolirimossiheatmap.html',
+                  context={'google_api_key': GOOGLE_API_KEY})
+
 def get_posti_letto(request):
     return render(request, 'postiletto.html')
 
